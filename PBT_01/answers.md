@@ -76,4 +76,3 @@ Tại sao không nên dùng table để tạo layout trang web?
 - Ảnh hưởng đến SEO và khả năng truy cập: Google và các công cụ tìm kiếm sử dụng bot để đọc nội dung web. Nếu dùng bảng để làm layout, bot sẽ hiểu nhầm đó là dữ liệu quan hệ thay vì cấu trúc trang khi đó nội dung sẽ bị đọc theo thứ tự sai logic.
 - Hiệu suất tải trang chậm: trình duyệt xử lý thẻ `<table>` theo cách đặc biệt đôi khi nó phải đọc toàn bộ nội dung trong bảng thì mới bắt đầu tính toán kích thước và hiển thị lên màn hình gây ra hiện tượng trang web bị khựng hoặc trắng xóa một lúc trước khi hiện ra hoàn chỉnh.
 - Bảo trì và sửa chữa cực kỳ phức tạp: việc lồng các bảng vào nhau để tạo layout sẽ tạo ra mã nguồn với hàng nghìn thẻ `<td>`, `<tr>` nên khi muốn thay đổi một chút về thiết kế gần như phải viết lại toàn bộ cấu trúc HTML thay vì chỉ cần sửa một vài dòng CSS.
-- test 

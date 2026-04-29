@@ -91,3 +91,11 @@ Tại sao không nên dùng table để tạo layout trang web?
 - Lỗi 10: dòng 34 - sử dụng thẻ `<main>` lần thứ hai, mộtn trang chỉ được có duy nhất một thẻ `<main>` - cách sửa: thay `<main>` thứ hai thành thẻ `<aside>`
 - Lỗi 11: dòng 39 - thẻ `<p>` chưa có thẻ đóng - cách sửa: `<p>Copyright 2026</p>`
 - Lỗi 12: dòng 5 - thiếu thẻ `<meta viewport>` - cách sửa: thêm `<meta name="viewport" content="width=device-width, initial-scale=1.0">`
+
+## Bài 4:
+1. Trang shopee có 3 Semantic được đưa ra:
+- Thẻ `<header>`: hiển thị của phần đâu trang, bao phủ toàn bộ thanh điều hướng trên cùng
+- Thẻ `<nav>`: nằm bên trong thẻ `<header>`, đây là thanh điều hướng nằm phía trên cùng của trang web chứa các liên kết chính
+- Thẻ `<form>`: đây là khung tìm kiếm màu trắng, nằm sâu bên trong phần header
+2. Em không tìm thấy có sử dụng `<table>`
+3. Trong web shopee ở phần form tìm kiếm thì không hiển thị trực tiếp thuộc tính action và method, trang có dùng `<input type="text">`, mặc dù trong ảnh thẻ `<input>` không ghi rõ thuộc tính type, nhưng trong HTML, khi không khai báo type, trình duyệt sẽ tự động hiểu đó là type="text"

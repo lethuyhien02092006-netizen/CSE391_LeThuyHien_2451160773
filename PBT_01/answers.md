@@ -77,7 +77,7 @@ Tại sao không nên dùng table để tạo layout trang web?
 - Hiệu suất tải trang chậm: trình duyệt xử lý thẻ `<table>` theo cách đặc biệt đôi khi nó phải đọc toàn bộ nội dung trong bảng thì mới bắt đầu tính toán kích thước và hiển thị lên màn hình gây ra hiện tượng trang web bị khựng hoặc trắng xóa một lúc trước khi hiện ra hoàn chỉnh.
 - Bảo trì và sửa chữa cực kỳ phức tạp: việc lồng các bảng vào nhau để tạo layout sẽ tạo ra mã nguồn với hàng nghìn thẻ `<td>`, `<tr>` nên khi muốn thay đổi một chút về thiết kế gần như phải viết lại toàn bộ cấu trúc HTML thay vì chỉ cần sửa một vài dòng CSS.
 
-#Phần B
+# Phần B
 ## Bài 3:
 - Lỗi 1: dòng 1 - thiếu định dạng chuẩn cho khai báo DOCTYPE - cách sửa: đổi thành `<!DOCTYPE html>`
 - Lỗi 2: dòng 2 - thiếu thuộc tính `lang` trong thẻ `<html>` - cách sửa: đổi thành `<html lang="vi">`

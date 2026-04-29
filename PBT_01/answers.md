@@ -76,3 +76,18 @@ Tại sao không nên dùng table để tạo layout trang web?
 - Ảnh hưởng đến SEO và khả năng truy cập: Google và các công cụ tìm kiếm sử dụng bot để đọc nội dung web. Nếu dùng bảng để làm layout, bot sẽ hiểu nhầm đó là dữ liệu quan hệ thay vì cấu trúc trang khi đó nội dung sẽ bị đọc theo thứ tự sai logic.
 - Hiệu suất tải trang chậm: trình duyệt xử lý thẻ `<table>` theo cách đặc biệt đôi khi nó phải đọc toàn bộ nội dung trong bảng thì mới bắt đầu tính toán kích thước và hiển thị lên màn hình gây ra hiện tượng trang web bị khựng hoặc trắng xóa một lúc trước khi hiện ra hoàn chỉnh.
 - Bảo trì và sửa chữa cực kỳ phức tạp: việc lồng các bảng vào nhau để tạo layout sẽ tạo ra mã nguồn với hàng nghìn thẻ `<td>`, `<tr>` nên khi muốn thay đổi một chút về thiết kế gần như phải viết lại toàn bộ cấu trúc HTML thay vì chỉ cần sửa một vài dòng CSS.
+
+#Phần B
+## Bài 3:
+- Lỗi 1: dòng 1 - thiếu định dạng chuẩn cho khai báo DOCTYPE - cách sửa: đổi thành `<!DOCTYPE html>`
+- Lỗi 2: dòng 2 - thiếu thuộc tính `lang` trong thẻ `<html>` - cách sửa: đổi thành `<html lang="vi">`
+- Lỗi 3: dòng 3 - thiếu thẻ đóng cho tiêu đề trang - cách sửa: thêm `</title>` sau phần nội dung
+- Lỗi 4: dòng 4 - sai định dạng mã hóa và thiếu thuộc tính nội dung - cách sửa: sửa thành `<meta charset="UTF-8">`
+- Lỗi 5: dòng 7 - thẻ `<h1>` đóng sai - cách sửa: sửa thành `<h1>Welcome to ShopTLU</h1>`
+- Lỗi 6: dòng 11 - thẻ `<a>` đóng sai - cách sửa: sửa thành `<a href="home">Trang chủ<a>`
+- Lỗi 7: dòng 18 - thẻ `<img>` thiếu thuộc tính `alt` và giá trị `src` nên để trong ngoặc kép và nên dùng thẻ `<figure>` - cách sửa: `<img src="iphone.jpg" alt="iPhone 17 ProMax">`
+- Lỗi 8: dòng 20 - thẻ `<b>` và `<p>` lỗi lồng thẻ đóng sai thứ tự - cách sửa: `<p>Giá: <b>25.990.000đ</b></p>`
+- Lỗi 9: dòng 25-28 - không nên sử dụng thẻ `<td>` cho tiêu đề đầu bảng - cách sửa: thay các ô Tên, Giá bằng thẻ `<th>` và nên bọc trong thẻ `<thead>`
+- Lỗi 10: dòng 34 - sử dụng thẻ `<main>` lần thứ hai, mộtn trang chỉ được có duy nhất một thẻ `<main>` - cách sửa: thay `<main>` thứ hai thành thẻ `<aside>`
+- Lỗi 11: dòng 39 - thẻ `<p>` chưa có thẻ đóng - cách sửa: `<p>Copyright 2026</p>`
+- Lỗi 12: dòng 5 - thiếu thẻ `<meta viewport>` - cách sửa: thêm `<meta name="viewport" content="width=device-width, initial-scale=1.0">`

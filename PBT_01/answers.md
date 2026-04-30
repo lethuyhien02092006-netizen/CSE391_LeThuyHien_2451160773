@@ -99,3 +99,123 @@ Tại sao không nên dùng table để tạo layout trang web?
 - Thẻ `<form>`: đây là khung tìm kiếm màu trắng, nằm sâu bên trong phần header
 2. Em không tìm thấy có sử dụng `<table>`
 3. Trong web shopee ở phần form tìm kiếm thì không hiển thị trực tiếp thuộc tính action và method, trang có dùng `<input type="text">`, mặc dù trong ảnh thẻ `<input>` không ghi rõ thuộc tính type, nhưng trong HTML, khi không khai báo type, trình duyệt sẽ tự động hiểu đó là type="text"
+
+# Phần C: Suy luận
+## Câu 1: thiết kế cấu trúc
+
+```<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telephone Store</title>
+</head>
+<body>
+    <header><!-- Dùng để chứa các yếu tố mang tính nhận diện thương hiệu và công cụ tìm kiếm toàn trang -->
+        <h1>Telephone Store</h1>       
+        <nav><!--Dùng để bao bọc tập hợp các liên kết điều hướng chính của website -->
+            <ul>
+                <li><a href="#">Trang chủ</a></li>
+                <li><a href="#">Điện thoại</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main><!--Chỉ được có 1 thẻ duy nhất, bao bọc nội dung chính yếu và độc nhất của trang này -->        
+        <nav aria-label="Breadcrumb">  <!--nó là điều hướng phân cấp nên vẫn dùng nav -->
+            <ul>
+                <li><a href="#">Trang chủ</a></li>
+                <li><a href="#">Điện thoại</a></li>
+                <li>iPhone 17 Pro</li>
+            </ul>
+        </nav>
+        <article><!--Dùng vì toàn bộ thông tin sản phẩm này là một đơn vị nội dung độc lập, có thể tái sử dụng hoặc đứng một mình -->            
+            <section id="gallery"><!--Chia nhỏ các khu vực có chủ đề riêng biệt bên trong bài viết -->
+                <!-- Figure: Dùng để chứa ảnh đi kèm với chú thích, tạo mối liên kết ngữ nghĩa giữa chúng -->
+                <figure>
+                    <img src="iphone-main.jpg" alt="iPhone 17 Pro màu cam">
+                    <!-- Figcaption: Chú thích cụ thể cho nội dung của figure bên trên -->
+                    <figcaption>Phiên bản cam cực sang trọng</figcaption>
+                </figure>
+                
+                <!-- Ul: Dùng để liệt kê các ảnh thumbnail, vì bản chất chúng là một danh sách các hình ảnh phụ -->
+                <ul class="thumbnails">
+                    <li><img src="thumb1.jpg" alt="Cạnh bên"></li>
+                    <li><img src="thumb2.jpg" alt="Mặt lưng"></li>
+                </ul>
+            </section>
+
+            <!-- Khu vực 2: Thông tin chi tiết và giá bán -->
+            <section id="product-details">
+                <!-- H2: Tiêu đề quan trọng thứ 2 sau H1, dùng để định danh tên sản phẩm chính -->
+                <h2>iPhone 17 Pro 256GB</h2>               
+                <p>Đánh giá: 5/5 sao</p>               
+                <!-- Strong/Mark: Dùng để nhấn mạnh giá tiền, vì đây là thông tin quan trọng nhất người dùng tìm kiếm -->
+                <p>Giá hiện tại: <mark>28.990.000đ</mark></p>
+                <!-- Article: Dùng bên trong section để chứa đoạn mô tả, vì đoạn văn này là một mẩu tin độc lập -->
+                <article>
+                    <h3>Mô tả sản phẩm</h3>
+                    <p>Chip A18 Pro cực mạnh, camera cải tiến</p>
+                </article>
+            </section>
+
+            <!-- Khu vực 3: Bảng thông số kỹ thuật -->
+            <section id="specs">
+                <h2>Thông số kỹ thuật</h2>
+                <!-- Table: Duy nhất và bắt buộc khi trình bày dữ liệu đối chiếu giữa các tiêu chí và giá trị -->
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tiêu chí</th>
+                            <th>Thông số</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Màn hình</td>
+                            <td>6.3 inch Super Retina XDR</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Khu vực 4: Bình luận/Đánh giá -->
+            <section id="reviews">
+                <h2>Bình luận từ khách hàng</h2>
+                <!-- Article: Mỗi một bình luận khách hàng là một nội dung độc lập, có tác giả và thời gian riêng -->
+                <article class="comment">
+                    <header>
+                        <strong>Lê Văn A</strong>
+                        <!-- Time: Dùng để máy tính/bot đọc chính xác định dạng ngày tháng thay vì chỉ là chữ bình thường -->
+                        <time datetime="2024-04-30">30/04/2024</time>
+                    </header>
+                    <p>Sản phẩm dùng rất tốt, giao hàng nhanh!</p>
+                </article>
+            </section>
+
+        </article>
+    </main>
+
+    <!-- Aside: Dùng cho Sidebar vì "Sản phẩm tương tự" chỉ là nội dung bổ trợ, không nằm trong luồng chính của sản phẩm đang xem -->
+    <aside>
+        <h3>Có thể bạn cũng thích</h3>
+        <ul>
+            <li><a href="#">iPhone 15 Pro Max</a></li>
+            <li><a href="#">iPhone 16 thường</a></li>
+        </ul>
+    </aside>
+    <!-- Footer: Chứa thông tin về bản quyền, liên hệ và các chính sách phụ của website -->
+    <footer>
+        <p>&copy; Telephone Store - Hệ thống bán lẻ ủy quyền</p>
+        <nav>
+            <a href="#">Chính sách bảo hành</a> | 
+            <a href="#">Liên hệ</a>
+        </nav>
+    </footer>
+</body>
+</html>
+```
+
+
+## Câu C2:
+Việc lạm dụng thẻ `<div>` thay vì Semantic HTML không chỉ là vấn đề thói quen, mà nó còn trực tiếp làm giảm chất lượng và giá trị kỹ thuật của sản phẩm web. Những lý do tại sao chúng ta nên ưu tiên các thẻ ngữ nghĩa.Thứ nhất, về mặt SEO (Tối ưu hóa công cụ tìm kiếm) các công cụ tìm kiếm như Google dựa vào cấu trúc mã để hiểu nội dung quan trọng nhất trên trang. Thẻ `<div>` là thẻ "vô nghĩa", trong khi các thẻ như `<main>`, `<article>`, hay `<h1>` là các tín hiệu chỉ đường mạnh mẽ. Nếu mọi thứ đều là `<div>`, bot sẽ gặp khó khăn trong việc xác định chủ đề chính, dẫn đến việc xếp hạng từ khóa kém hiệu quả hơn so với các đối thủ có cấu trúc chuẩn.  Thứ hai, về tính Accessibility (Khả năng truy cập) các thiết bị hỗ trợ người khiếm thị (Screen Readers) sử dụng thẻ Semantic để tạo ra một "bản đồ nội dung". Khi dùng `<nav>`, thiết bị sẽ thông báo "Đây là menu điều hướng", giúp người dùng nhanh chóng tìm thấy thứ họ cần. Ngược lại, một trang web chỉ toàn `<div>` sẽ khiến người dùng khiếm thị bị lạc trong một biển văn bản không có điểm dừng hay định danh rõ ràng. Ví dụ chứng minh cụ thể: Hãy nhìn vào thanh tìm kiếm của Shopee. Thay vì dùng `<div>`, họ sử dụng `<form role="search">` kết hợp với `<input aria-label="...">`. Điều này giúp trình duyệt tự động hiểu đây là chức năng tìm kiếm, cho phép người dùng nhấn "Enter" để gửi dữ liệu một cách tự nhiên và giúp các công cụ hỗ trợ nhận diện ngay lập tức chức năng của ô nhập liệu này. Trường hợp thực tế mà `<div>` vẫn phù hợp: Thẻ `<div>` vẫn cực kỳ hữu ích khi đóng vai trò là các "thùng chứa" (containers) chỉ phục vụ mục đích trang trí hoặc bố cục (layout). Ví dụ, khi bạn cần một thẻ bao bọc (wrapper) để căn giữa nội dung bằng Flexbox, hoặc tạo một hiệu ứng đổ bóng phức tạp mà không mang ý nghĩa nội dung cụ thể, thì `<div>` chính là sự lựa chọn đúng đắn vì nó không làm nhiễu cấu trúc ngữ nghĩa của trang.

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PBT_01_A2</title>
+</head>
+<body>
+    <form action="testForm">
+        <div>
+            <label>Trường hợp 1:</label>
+            <input type="text" required value="">
+        </div>
+        <div>
+            <label>Trường hợp 2:</label>
+            <input type="email" value="abc">
+        </div>
+        <div>
+            <label>Trường hợp 3:</label>
+            <input type="number" min="1" max="10" value="15">
+        </div>
+        <div>
+            <label>Trường hợp 4:</label>
+            <input type="text" pattern="[0-9]{10}" value="abc123">
+        </div>
+        <div>
+            <label>Trường hợp 5:</label>
+            <input type="password" minlength="8" value="123">
+        </div>
+        <button type="submit">Bam submit de kiem tra</button>
+    </form>
+</body>
+</html>

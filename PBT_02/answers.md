@@ -40,4 +40,4 @@
 Sau khi tạo file validation_test.html thì thực tế kết quả như đã dự đoán ở bên trên.
 
 ## Câu A3
-
+- Dùng `<lable for="email">` quan trọng cho người dùng screen reader

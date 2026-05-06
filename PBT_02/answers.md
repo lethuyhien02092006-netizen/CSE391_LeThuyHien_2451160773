@@ -39,5 +39,32 @@
 
 Sau khi tạo file validation_test.html thì thực tế kết quả như đã dự đoán ở bên trên.
 
-## Câu A3
-- Dùng `<lable for="email">` quan trọng cho người dùng screen reader
+## Câu A3: Accessibility
+- Dùng `<lable for="email">` quan trọng cho người dùng screen reader vì trình đọc màn hình không nhìn thấy giao diện như chúng ta, nó đọc cấu trúc mã HTML nên khi dùng `for="email'` trên thẻ `<label>` sẽ tạo được mối liên kết logic
+- Dùng `<fieldset>` + `<legend>` khi muốn nhóm các nhóm có liên quan chặt chẽ
+    - Ví dụ: nếu chỉ hỏi "Bạn có đồng ý không?" người dùng screen reader sẽ không biết đang hỏi về điều gì
+    <!-- Ví dụ: Nhóm câu hỏi trắc nghiệm -->
+```<fieldset>
+  <legend>Phương thức liên lạc ưu tiên</legend>
+  
+  <input type="radio" id="sms" name="contact" value="sms">
+  <label for="sms">Tin nhắn SMS</label><br>
+
+  <input type="radio" id="call" name="contact" value="phone">
+  <label for="call">Gọi điện thoại</label>
+</fieldset>
+```
+- `aria-label` dùng khi bạn muốn cung cấp một nhãn văn bản cho sceen reader nhưng không muốn hiển thị nhãn đó trên giao diện. Không nên dùng `aria-label` khi đã có `<label>` vì trong quy tắc vàng của Accessibility nếu dùng được HTML thuần thì cứ dùng vì nó ổn định và hỗ trợ tốt hơn
+
+## Câu A4: Media
+1. Thuộc tính `loading="lazy"` trên thẻ `<img>` giúp cải thiện tốc độ tải trang, tiết kiệm băng thông vì `loading="lazy"` là kỹ thuật giúp trình duyệt trì hoãn việc tải hình ảnh cho đến khi người dùng cuộn chuột đến gần vị trí ảnh đó. KHông nên dùng thuộc tính này cho ảnh ở đầu trang như logo hoặc ảnh bìa, không dùng cho những ảnh chính là nội dung cần hiển thị ưu tiên
+2. Việc cung cấp nhiều `source` trong thẻ `<img>` giúp trình duyệt tự chọn định dạng tốt nhất mà nó hỗ trợ, đảm bảo video chạy được trên mọi thiết bị và tối ưu dung lượng. 3 format video web phổ biển: MP4, Ogg, WebM.
+3. Thuộc tính `alt` trên thẻ `<img>` dùng để mô tả hình ảnh bằng văn bản khi ảnh bị lỗi. `alt` tốt cho 3 trường hợp:
+   - Ảnh sản phẩm từ iphone16: `alt="Điện thoại iPhone 16 màu Hồng, dung lượng 128GB, nhìn từ mặt lưng"`
+   - Ảnh trang trí: `alt=""`
+   - Ảnh biểu đồ doanh thu: `alt="Biểu đồ cột cho thấy doanh thu Q1/2026 tăng 15% so với quý trước, đạt mức 50 tỷ đồng."`
+
+## Câu A5: So sánh `<figure>` vs `<img>`
+- Chọn `<img>` khi đó là hình ảnh không thể tách rời giao diện hoặc văn bản
+- Chọn `<figure>` khi viết blog, báo trí, v.v muốn có chú thích hiển thị rõ ràng cho ảnh và khi muốn cải thiện SEO
+

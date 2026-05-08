@@ -68,3 +68,11 @@ Sau khi tạo file validation_test.html thì thực tế kết quả như đã d
 - Chọn `<img>` khi đó là hình ảnh không thể tách rời giao diện hoặc văn bản
 - Chọn `<figure>` khi viết blog, báo trí, v.v muốn có chú thích hiển thị rõ ràng cho ảnh và khi muốn cải thiện SEO
 
+# Phần B:
+## Câu B1:
+Tại sao HTML không thể tự validate "Confirm Password"?
+
+Mặc dù HTML5 cung cấp các thuộc tính Validation mạnh mẽ như `required`, `pattern`, `minlength`, nhưng nó có một giới hạn quan trọng: HTML không thể so sánh giá trị giữa hai thẻ input khác nhau một cách logic
+
+1. Thiếu tính logic so sánh: Các thuộc tính validation của HTML hoạt động độc lập trên từng phần tử (atomic validation). Thuộc tính `pattern` chỉ kiểm tra giá trị của chính nó so với một biểu thức chính quy (Regex), chứ không có cú pháp nào để nói "khớp với giá trị của ô có ID là 'password'".
+2. Ngôn ngữ đánh dấu (Markup) vs Ngôn ngữ lập trình: HTML là ngôn ngữ đánh dấu cấu trúc. Việc kiểm tra tính khớp nhau (matching logic) là một nghiệp vụ logic (business logic), yêu cầu khả năng truy cập vào bộ nhớ/biến số để so sánh

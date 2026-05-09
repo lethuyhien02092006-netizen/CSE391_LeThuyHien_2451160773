@@ -76,3 +76,36 @@ Mặc dù HTML5 cung cấp các thuộc tính Validation mạnh mẽ như `requi
 
 1. Thiếu tính logic so sánh: Các thuộc tính validation của HTML hoạt động độc lập trên từng phần tử (atomic validation). Thuộc tính `pattern` chỉ kiểm tra giá trị của chính nó so với một biểu thức chính quy (Regex), chứ không có cú pháp nào để nói "khớp với giá trị của ô có ID là 'password'".
 2. Ngôn ngữ đánh dấu (Markup) vs Ngôn ngữ lập trình: HTML là ngôn ngữ đánh dấu cấu trúc. Việc kiểm tra tính khớp nhau (matching logic) là một nghiệp vụ logic (business logic), yêu cầu khả năng truy cập vào bộ nhớ/biến số để so sánh
+
+# Phần C: phân tích và suy luận
+## Câu C1:
+- Lỗi 1: Dòng 2 — Input "Tên" không có `<label for="...">`, vi phạm accessibility
+    - Sửa: `<label for="name">Tên:</label> <input type="text" id="name" name="name" required>`
+- Lỗi 2: Dòng 4 — Input "Email" thiếu `<label>` chỉ sử dụng placeholder thay thế cho label là vi phạm accessibility vì placeholder biến mất khi người dùng gõ, gây khó khăn cho việc kiểm tra lại thông tin 
+    - Sửa: `<label for="email">Email:</label> <input type="email" id="email" name="email" placeholder="Email của bạn" required>`
+- Lỗi 3: Dòng 6 — Input "Mật khẩu" thiếu validation cơ bản, mật khẩu nên có các thuộc tính giới hạn độ dài để bảo mật và tránh lỗi từ phía server 
+    - Sửa: `<label for="pwd">Mật khẩu:</label> <input type="password" id="pwd" name="pwd" minlength="8" required>`
+- Lỗi 4: Dòng 7 — Input "Nhập lại mật khẩu" thiếu định dan không có name và id khiến không thể xử lý logic so sánh mật khẩu qua JavaScript 
+    - Sửa: `<label for="re-pwd">Nhập lại mật khẩu:</label> <input type="password" id="re-pwd" name="re-pwd" required>`
+- Lỗi 5: Dòng 9 — Sai type cho số điện thoại và thiếu label đúng cách sử dụng type="text" thay vì type="tel" khiến bàn phím số không tự động bật lên trên thiết bị di động, đồng thời thiếu pattern kiểm tra 10 số  
+    - Sửa: `<label for="phone">Phone:</label> <input type="tel" id="phone" name="phone" value="0901234567" pattern="[0-9]{10}">`
+- Lỗi 6: Dòng 11 — Thẻ `<select>` thiếu nhãn và tên biến trình duyệt không biết dữ liệu thành phố thuộc biến nào khi gửi form  
+    - Sửa: `<label for="city">Thành phố:</label> <select id="city" name="city">...</select>`
+- Lỗi 7: Dòng 16 — `<label>` không bao bọc hoặc liên kết với checkbox văn bản "Tôi đồng ý..." chưa được liên kết với một input type="checkbox" người dùng không thể tích chọn bằng cách nhấn vào chữ  
+    - Sửa: `<input type="checkbox" id="terms" name="terms" required> <label for="terms">Tôi đồng ý điều khoản</label>`
+- Lỗi 8: Cấu trúc tổng quát — Thiếu thuộc tính action và method trong thẻ `<form>` Thẻ `<form>` không khai báo phương thức gửi (POST/GET) và nơi nhận dữ liệu, dẫn đến hành vi mặc định không kiểm soát được  
+    - Sửa: `<form action="#" method="POST">`
+
+## Câu C2:
+1. Viết Pattern Regex cho CMND/CCCD và Số tài khoản
+   - CMND/CCCD (Đúng 12 chữ số): pattern="[0-9]{12}"
+   - Số tài khoản (10-15 chữ số): pattern="\d{10,15}"
+2. HTML5 Validation đủ an toàn cho ứng dụng ngân hàng chưa? Tại sao?
+   - Mặc dù HTML5 Validation rất tiện lợi để cải thiện trải nghiệm người dùng, nhưng nó không thể là rào cản bảo mật duy nhất cho các ứng dụng nhạy cảm như ngân hàng vì dễ dàng bị vô hiệu hóa: Người dùng có thể nhấn F12 để xóa thuộc tính required hoặc pattern trong mã nguồn, hoặc thêm thuộc tính novalidate vào thẻ `<form>` để vượt qua kiểm tra.
+3. Liệt kê 3 loại Validation mà HTML5 KHÔNG THỂ làm được
+   - So sánh chéo giữa hai trường (Cross-field Validation): Ví dụ như kiểm tra "Xác nhận mã PIN" phải trùng khớp với "Mã PIN"
+   - Kiểm tra dữ liệu thời gian thực (Server-side lookup): Kiểm tra xem Số điện thoại hoặc Email đã tồn tại trong hệ thống ngân hàng hay chưa
+   - Logic phức tạp (Conditional Validation): Ví dụ: Nếu khách hàng chọn phương thức nhận mã OTP qua "Email" thì trường "Email" mới trở thành bắt buộc, nếu chọn "SMS" thì không cần
+4. Hai rủi ro bảo mật nếu chỉ validate trên Frontend mà không có Backend
+   - Tấn công tiêm nhiễm dữ liệu (Injection Attacks): Kẻ xấu có thể gửi các đoạn mã độc hoặc câu lệnh SQL vào các trường như "Số tài khoản" để đánh cắp dữ liệu hoặc phá hoại cơ sở dữ liệu (SQL Injection)
+   - Sai lệch tính toàn vẹn dữ liệu (Data Integrity): Dữ liệu rác, không đúng định dạng (ví dụ CCCD chỉ có 5 số thay vì 12) sẽ lọt vào hệ thống, gây lỗi dây chuyền cho các nghiệp vụ tài chính, báo cáo thuế và định danh khách hàng

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang giới thiệu sản phẩm có multimedia</title>
+</head>
+<body>
+    <h1>Giới thiệu Sản phẩm</h1>
+
+    <h3>Logo thương hiệu:</h3>
+    <svg width="50" height="50">
+        <circle cx="25" cy="25" r="20" stroke="green" stroke-width="4" fill="yellow" />
+        <rect x="15" y="15" width="20" height="20" fill="red" />
+    </svg>
+
+    <hr>
+
+    <div style="display: flex; gap: 20px;">
+        <figure>
+            <img src="https://hn.ss.bfcplatform.vn/tckt/2020/08/20A08007-01.jpg" 
+                 alt="Mô tả sản phẩm 1" loading="lazy" style="max-width: 200px; height: 150px;">
+            <figcaption>Sản phẩm 1 - Sang trọng</figcaption>
+        </figure>
+
+        <figure>
+            <img src="https://thongtinchongphandong.com/wp-content/uploads/2017/10/19.jpg" 
+                 alt="Mô tả sản phẩm 2" loading="lazy" style="max-width: 200px; height: 150px;">
+            <figcaption>Sản phẩm 2 - Hiện đại</figcaption>
+        </figure>
+
+        <figure>
+            <img src="https://cdn.daidoanket.vn/w1200/uploaded/images/2025/09/09/dad96b6b-c473-468e-a5ad-2ccde17a922b.png" 
+                 alt="Mô tả sản phẩm 3" loading="lazy" style="max-width: 200px; height: 150px;">
+            <figcaption>Sản phẩm 3 - Tinh tế</figcaption>
+        </figure>
+    </div>
+
+    <hr>
+
+    <h3>Video Review (YouTube):</h3>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/3FIZwdzxNB4" 
+            title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+
+    <hr>
+
+    <h3>Video giới thiệu tính năng:</h3>
+    <video width="400" controls poster="https://picsum.photos/400/225">
+        <source src="movie.mp4" type="video/mp4">
+        <source src="movie.webm" type="video/webm">
+        Trình duyệt không hỗ trợ xem video.
+    </video>
+
+    <hr>
+
+    <!-- Thẻ Audio -->
+    <h3>Nhạc nền giới thiệu:</h3>
+    <audio controls>
+        <source src="background-music.mp3" type="audio/mpeg">
+        Trình duyệt không hỗ trợ nghe nhạc.
+    </audio>   
+</body>
+</html>

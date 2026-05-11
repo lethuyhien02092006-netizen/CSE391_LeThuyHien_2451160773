@@ -57,8 +57,8 @@ Thứ tự ưu tiên sẽ là : Inline CSS > Internal CSS = External CSS
     border: 5px solid black;
     margin: 10px;
 }
-→ Chiều rộng hiển thị = ???
-→ Không gian chiếm trên trang = ???
+→ Chiều rộng hiển thị = 400 + 20x2 + 5x2 = 450px
+→ Không gian chiếm trên trang = 450 + 10x2 = 470px
 
 /* Trường hợp 2: border-box */
 .box-2 {
@@ -68,13 +68,26 @@ Thứ tự ưu tiên sẽ là : Inline CSS > Internal CSS = External CSS
     border: 5px solid black;
     margin: 10px;
 }
-→ Chiều rộng hiển thị = ???
-→ Kích thước content thực tế = ???
-→ Không gian chiếm trên trang = ???
+→ Chiều rộng hiển thị = 400px
+→ Kích thước content thực tế = 400 - 20x2 - 5x2 = 350px
+→ Không gian chiếm trên trang = 400 + 10x2 = 420px
 
 /* Trường hợp 3: Margin collapse */
 .box-a { margin-bottom: 25px; }
 .box-b { margin-top: 40px; }
-→ Khoảng cách giữa box-a và box-b = ???
-→ Giải thích tại sao KHÔNG PHẢI 65px
+→ Khoảng cách giữa box-a và box-b = 40px
+→ Giải thích tại sao KHÔNG PHẢI 65px: Theo quy tắc Margin Collapse trong CSS, khi hai lề dọc tiếp xúc với nhau, trình duyệt sẽ chọn giá trị lớn nhất trong hai giá trị lề để áp dụng, thay vì cộng tổng chúng lại nen 40px > 20px
 ```
+
+- Nếu .box-a có margin-bottom = -10px và margin-top = 40px thì khoảng cách là: 40+(-10) = 30px
+
+## Câu A4: Specificity
+
+1. Tính điểm specificity score (a,b,c)
+- Rule A: selector `p` có 0 ID, 0 class, 1 tag nên điểm sẽ là (0,0,1)
+- Rule B: selector .price có 0 ID, 1 class, 0 element nên điểm là (0,1,0)
+- Rule C: selector #main-price có 1 ID, 0 class, 0 element nên điểm la (1,0,0)
+- Rule D: selector p.price có 0 ID, 1 class, 1 element nên điểm là (0,1,1)
+2. Elements sẽ có màu đỏ (red) vì ID selector có độ ưu tiên cao hơn rất nhiều so với class và element selector nên Rule C sẽ được chọn
+3. Nếu thêm `<p class="price" id="main-price" style="color: orange;">` thì elements sẽ có màu cam(orange) vì Inline style có độ ưu tiên cao hơn tất cả các selector có trong file CSS nên màu sẽ theo đó mà được chọn
+4. Nếu Rule A thêm `!important` thì element có màu đen (black) vì `!important` không phải là một selector, nhưng nó có thể phá vỡ mọi quy tắc Specificity thông thường, khi Rule A trở thành `p { color: black !important; }`, nó sẽ đè bẹp cả ID selector và thậm chí là cả Inline style

@@ -91,3 +91,22 @@ Thứ tự ưu tiên sẽ là : Inline CSS > Internal CSS = External CSS
 2. Elements sẽ có màu đỏ (red) vì ID selector có độ ưu tiên cao hơn rất nhiều so với class và element selector nên Rule C sẽ được chọn
 3. Nếu thêm `<p class="price" id="main-price" style="color: orange;">` thì elements sẽ có màu cam(orange) vì Inline style có độ ưu tiên cao hơn tất cả các selector có trong file CSS nên màu sẽ theo đó mà được chọn
 4. Nếu Rule A thêm `!important` thì element có màu đen (black) vì `!important` không phải là một selector, nhưng nó có thể phá vỡ mọi quy tắc Specificity thông thường, khi Rule A trở thành `p { color: black !important; }`, nó sẽ đè bẹp cả ID selector và thậm chí là cả Inline style
+
+# Phần B:
+## Câu b2:
+- Hộp 1 (content-box): Chiều rộng thực tế = **350px** (đo từ DevTools).
+    - Tính toán: 300px (width) + 20px*2 (padding) + 5px*2 (border) = 350px.
+- Hộp 2 (border-box): Chiều rộng thực tế = **300px** (đo từ DevTools).
+    - Tính toán: Kích thước hiển thị cố định đúng bằng 300px (width).
+
+**Giải thích sự khác biệt:**
+- Với `content-box`, thuộc tính `width` chỉ định nghĩa cho phần nội dung bên trong, nên khi thêm padding và border, hộp sẽ bị "phình" to ra
+- Với `border-box`, thuộc tính `width` bao gồm cả nội dung, padding và border. Trình duyệt tự động co phần nội dung lại để tổng chiều rộng không đổi
+
+**Tại sao tổng > 1000px nếu khong dùng border-box?**
+Nếu dùng `content-box`:
+- Cột trái: 250px + 15px*2 (padding) = 280px
+- Cột giữa: 500px + 20px*2 (padding) = 540px
+- Cột phải: 250px + 15px*2 (padding) = 280px
+- **Tổng cộng:** 280 + 540 + 280 = **1100px** (Vượt quá container 1000px, gây vỡ layout).
+Khi dùng `border-box`, mỗi cột giữ nguyên chiều rộng khai báo (250 + 500 + 250 = 1000px), giúp layout hoàn hảo.

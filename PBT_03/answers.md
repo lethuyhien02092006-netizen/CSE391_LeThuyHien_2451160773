@@ -93,7 +93,7 @@ Thứ tự ưu tiên sẽ là : Inline CSS > Internal CSS = External CSS
 4. Nếu Rule A thêm `!important` thì element có màu đen (black) vì `!important` không phải là một selector, nhưng nó có thể phá vỡ mọi quy tắc Specificity thông thường, khi Rule A trở thành `p { color: black !important; }`, nó sẽ đè bẹp cả ID selector và thậm chí là cả Inline style
 
 # Phần B:
-## Câu b2:
+## Câu B2:
 - Hộp 1 (content-box): Chiều rộng thực tế = **350px** (đo từ DevTools).
     - Tính toán: 300px (width) + 20px*2 (padding) + 5px*2 (border) = 350px.
 - Hộp 2 (border-box): Chiều rộng thực tế = **300px** (đo từ DevTools).
@@ -109,4 +109,29 @@ Nếu dùng `content-box`:
 - Cột giữa: 500px + 20px*2 (padding) = 540px
 - Cột phải: 250px + 15px*2 (padding) = 280px
 - **Tổng cộng:** 280 + 540 + 280 = **1100px** (Vượt quá container 1000px, gây vỡ layout).
-Khi dùng `border-box`, mỗi cột giữ nguyên chiều rộng khai báo (250 + 500 + 250 = 1000px), giúp layout hoàn hảo.
+Khi dùng `border-box`, mỗi cột giữ nguyên chiều rộng khai báo (250 + 500 + 250 = 1000px), giúp layout hoàn hảo
+
+## Câu B3:
+1. Danh sách 10 Rules và Điểm Specificity (ID, Class, Element)
+
+| Thứ tự | Selector | Màu sắc | Specificity Score |
+| :--- | :--- | :--- | :--- |
+| 1 | `p` | Gray | (0, 0, 1) |
+| 2 | `p::first-line` | Silver | (0, 0, 2) |
+| 3 | `.text` | Blue | (0, 1, 0) |
+| 4 | `.text.highlight` | Green | (0, 2, 0) |
+| 5 | `[id="demo"].text` | Orange | (0, 2, 0) |
+| 6 | `p:nth-child(1).text.highlight` | Purple | (0, 3, 0) |
+| 7 | `#demo` | Red | (1, 0, 0) |
+| 8 | `p#demo` | Brown | (1, 0, 1) |
+| 9 | `#demo.text` | Darkcyan | (1, 1, 0) |
+| 10 | `#demo.text[class*="highlight"]` | Hotpink | (1, 2, 0) |
+
+2. Kết quả hiển thị
+- Màu sắc hiển thị: `hotpink`
+- Tại sao? Vì selector `#demo.text[class*="highlight"]` có điểm Specificity cao nhất (1, 2, 0) trong tất cả các rule. CSS ưu tiên selector có độ ưu tiên cao nhất bất kể vị trí của nó trong file.
+
+3. Thay đổi thứ tự Rules
+- **Kết quả có thay đổi không?**
+    - Không, nếu bạn chỉ thay đổi thứ tự giữa các rule có điểm specificity khác nhau. Rule có điểm cao hơn luôn thắng.
+    - Có, nếu thay đổi thứ tự giữa các rule có cùng điểm specificity (Ví dụ Rule 4 và Rule 5 đều là 0,2,0). Trong trường hợp hòa điểm, rule nào viết sau cùng (ở dưới cùng của file CSS) sẽ được áp dụng.

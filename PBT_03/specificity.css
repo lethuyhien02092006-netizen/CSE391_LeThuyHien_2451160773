@@ -1,0 +1,39 @@
+p {
+    color: gray;
+}
+
+div p {
+    color: silver;
+}
+
+.text {
+    color: blue;
+}
+
+.text.highlight {
+    color: green;
+}
+
+[id="demo"].text {
+    color: orange;
+}
+
+p:nth-child(1).text.highlight {
+    color: purple;
+}
+
+#demo {
+    color: red;
+}
+
+p#demo {
+    color: brown;
+}
+
+#demo.text {
+    color: darkcyan;
+}
+
+#demo.text[class*="highlight"] {
+    color: hotpink;
+}

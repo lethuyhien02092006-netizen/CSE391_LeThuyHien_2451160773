@@ -145,3 +145,17 @@ Khi dùng `border-box`, mỗi cột giữ nguyên chiều rộng khai báo (250 
             - Content: 660 + 30 + 30 + 1 + 1 = 722px
             - Tổng cộng: 342 + 722 = 1064px
 2. Layout bị vỡ vì tổng chiều rộng thực tế của hai khối là 1064px, trong khi Container chỉ rộng 960px. Vì không đủ chỗ để nằm cùng một hàng, trình duyệt sẽ đẩy khối thứ hai (.content) xuống dòng dưới
+3. Hai cách sửa:
+   - Cách 1: Sử dụng box-sizing: border-box: cách này thay đổi cách trình duyệt tính toán `width` sẽ bao gồm cả padding và border nên sẽ giữ nguyên được layout mà không bị vỡ.
+   - Cách 2: Tính toán thủ công: trừ bớt phần padding và border ra khỏi giá trị `width` khai báo
+
+## Câu C2:
+1. "Sản phẩm A" (h2) có font-size = **20px** và color = **green**
+   - h2 là .card .title có Specificity Score là cao nhất nên font-size là 20px và .highlight có !important phá vỡ và trở thành duy nhất nên màu là green
+2. "Mô tả sản phẩm" (p trong card featured) có color = **inherit**
+   - câu lệnh sẽ tuân theo .card p vì có Specificity Score là cao nhất nên màu là inherit
+3. "Sản phẩm B" (h2) có font-size = **20px** và color = **blue**
+   - h2 là .card .title có Specificity Score là cao nhất nên font-size là 20px và .card là cao nhất cho color nên màu là blue
+4. "Mô tả sản phẩm B" (p.highlight) có color = **green**
+   - có .highlight chứa !important là cao hơn tất cả nên màu là green
+

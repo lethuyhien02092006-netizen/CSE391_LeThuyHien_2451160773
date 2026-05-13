@@ -135,3 +135,13 @@ Khi dùng `border-box`, mỗi cột giữ nguyên chiều rộng khai báo (250 
 - **Kết quả có thay đổi không?**
     - Không, nếu bạn chỉ thay đổi thứ tự giữa các rule có điểm specificity khác nhau. Rule có điểm cao hơn luôn thắng.
     - Có, nếu thay đổi thứ tự giữa các rule có cùng điểm specificity (Ví dụ Rule 4 và Rule 5 đều là 0,2,0). Trong trường hợp hòa điểm, rule nào viết sau cùng (ở dưới cùng của file CSS) sẽ được áp dụng.
+
+## PHẦN C — DEBUG & SUY LUẬN
+## Câu C1:
+1. Tính chiều rộng thực tế của sidebar và content (content-box!)
+   - Trong chế độ content-box mặc định, width chỉ tính phần nội dung. Tổng chiều rộng thực tế trên trình duyệt được tính theo công thức:
+        - Tổng = width + padding-left + padding-right + border-left + border-right
+            - Sidebar: 300 + 20 + 20 + 1 + 1 = 342px
+            - Content: 660 + 30 + 30 + 1 + 1 = 722px
+            - Tổng cộng: 342 + 722 = 1064px
+2. Layout bị vỡ vì tổng chiều rộng thực tế của hai khối là 1064px, trong khi Container chỉ rộng 960px. Vì không đủ chỗ để nằm cùng một hàng, trình duyệt sẽ đẩy khối thứ hai (.content) xuống dòng dưới

@@ -60,7 +60,7 @@ body {
 .stats-grid { display: flex; gap: 20px; }
 
 .card {
-    position: relative; /* Gốc tọa độ cho badge absolute bên trong */
+    position: relative;
     background: white;
     padding: 20px;
     border-radius: 8px;
@@ -73,12 +73,12 @@ body {
 .badge-hot {
     position: absolute;
     top: 10px;
-    right: 10px; /* Neo ở góc trên bên phải */
-    background: #ef4444; /* Đỏ */
+    right: 10px; 
+    background: #ef4444; 
     color: white;
     width: 35px;
     height: 35px;
-    border-radius: 50%; /* Hình tròn */
+    border-radius: 50%; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -86,7 +86,6 @@ body {
     font-weight: bold;
 }
 
-/* Giả lập chiều dài để test cuộn trang */
 .scroll-spacing {
     margin-top: 40px;
     height: 1000px; 
@@ -96,11 +95,10 @@ body {
     color: #6b7280;
 }
 
-/* 4. SCROLL TO TOP BUTTON (FIXED) */
 .scroll-to-top {
     position: fixed;
     bottom: 20px;
-    right: 20px; /* Khóa chặt ở góc dưới cùng bên phải màn hình */
+    right: 20px; 
     width: 45px;
     height: 45px;
     background: #4f46e5;

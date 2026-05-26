@@ -75,5 +75,26 @@
     └──────────────────────┘    └──────────────────────┘    └──────────────────────┘
         (gap: 10px)                 (gap: 10px)                 (gap: 10px)
     ┌──────────────────────┐
-    │     Item 7 (1fr)     │           ( Trống )                   ( Trống )
-    └──────────────────────┘
+    │     Item 7 (1fr)     │           ( Trống )                   ( Trống ) 
+    └──────────────────────┘       
+
+# Phần C: Suy luận
+## Câu C1: Flexbox vs Grid: Khi nào dùng gì?
+1. Navigation bar ngang (Logo + Menu + Buttons)
+- Lựa chọn: Flexbox
+- Giải thích: Thanh điều hướng là layout một chiều (theo trục ngang). Flexbox xử lý cực tốt việc phân bổ không gian theo hàng, ví dụ như dùng justify-content: space-between để đẩy Logo sang trái, Menu ở giữa và Buttons sang phải, đồng thời căn giữa căn dọc (align-items: center) các phần tử rất dễ dàng.
+2. Lưới ảnh Instagram (3 cột đều nhau, số ảnh không biết trước)
+- Lựa chọn: Grid
+- Giải thích: Đây là layout 2 chiều (các ảnh xếp thành các hàng và cột cố định). Với Grid, bạn chỉ cần định nghĩa cấu trúc 3 cột bằng grid-template-columns: repeat(3, 1fr). Khi có ảnh mới, Grid sẽ tự động đẩy chúng xuống hàng tiếp theo một cách thẳng hàng tăm tắp mà không cần can thiệp gì thêm.
+3. Layout blog: Main content + Sidebar
+- Lựa chọn: Kết hợp cả hai (Hoặc dùng một trong hai đều được, tùy quy mô)
+- Giải thích: * Grid (Bên ngoài): Dùng để chia bố cục tổng thể của trang web thành 2 cột (Main chiếm 70-80%, Sidebar chiếm 20-30%) để đảm bảo cấu trúc trang cố định và rõ ràng.
+    - Flexbox (Bên trong): Dùng để sắp xếp các phần tử nhỏ hơn bên trong từng khu vực, ví dụ: danh sách bài viết mới trong Sidebar hoặc các thẻ tag trong Main content.
+4. Footer với 4 cột thông tin
+- Lựa chọn: Grid (Hoặc Flexbox nếu cần co giãn linh hoạt)
+- Giải thích: Nếu bạn muốn 4 cột này luôn chia đều diện tích và thẳng hàng kể cả khi nội dung dài ngắn khác nhau, Grid (grid-template-columns: repeat(4, 1fr)) là lựa chọn gọn gàng nhất. Tuy nhiên, nếu trên mobile bạn muốn các cột này tự động rớt dòng và co giãn tự do theo kích thước chữ, Flexbox (flex-wrap: wrap) cũng là một giải pháp rất phổ biến.
+5. Card sản phẩm (Ảnh trên, Text giữa, Nút luôn dính đáy)
+- Lựa chọn: Flexbox
+- Giải thích: Card sản phẩm là layout một chiều (theo trục dọc từ trên xuống). Khi đặt display: flex và flex-direction: column cho card, bạn chỉ cần thêm thuộc tính margin-top: auto cho phần nút bấm (hoặc flex-grow: 1 cho phần text ở giữa). Lúc này, phần nút sẽ luôn bị "đẩy" về sát đáy card, bất kể phần text ở giữa dài hay ngắn.
+
+## Câu C2: Debug Flexbox

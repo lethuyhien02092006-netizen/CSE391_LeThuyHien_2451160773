@@ -1,0 +1,399 @@
+/* -------------------------------------------------------------
+   TechVibe - Transitions & Animations CSS Showcase
+   ------------------------------------------------------------- */
+
+/* Reset & Stylesheet Foundation */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg-dark: hsl(222, 47%, 11%);
+    --bg-dark-accent: hsl(223, 47%, 16%);
+    --primary: hsl(243, 75%, 59%);
+    --primary-light: hsl(243, 75%, 65%);
+    --accent: hsl(188, 86%, 43%);
+    --text-white: hsl(0, 0%, 100%);
+    --text-muted: hsl(215, 20%, 65%);
+    --border-dark: hsl(223, 47%, 22%);
+    --radius-lg: 20px;
+    --radius-md: 12px;
+    --radius-sm: 8px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-ease: all 0.3s ease; /* Specified in requirements */
+}
+
+html {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header & Nav */
+.header {
+    background-color: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-dark);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--text-white);
+}
+
+.logo-accent {
+    color: var(--primary-light);
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-item {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.nav-item:hover, .nav-item.active {
+    color: var(--text-white);
+}
+
+/* Container Wrapper */
+.showcase-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom: 15px;
+    background: linear-gradient(to right, #fff, var(--text-muted));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-section p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* Sections */
+.showcase-section {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.section-title h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.section-title p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* --- EFFECT 1: Card Hover Effect --- */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.demo-card {
+    background-color: var(--bg-dark-accent);
+    border: 1px solid var(--border-dark);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    /* Transition specified as: all 0.3s ease */
+    transition: var(--transition-ease);
+}
+
+/* Hover effect rule details: transform: translateY(-8px) + box-shadow increase */
+.demo-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(79, 70, 229, 0.25), 0 1px 3px rgba(0, 0, 0, 0.1);
+    border-color: rgba(79, 70, 229, 0.4);
+}
+
+/* --- EFFECT 3: Image Zoom --- */
+/* Set overflow: hidden on container/wrapper */
+.img-wrapper {
+    position: relative;
+    padding-top: 75%; /* 4:3 Aspect Ratio */
+    background-color: #0f172a;
+    overflow: hidden; 
+}
+
+.img-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Smooth transitions for image scaling */
+    transition: var(--transition-ease);
+}
+
+/* Scale 1.1 image when hover on card */
+.demo-card:hover .img-wrapper img {
+    transform: scale(1.1);
+}
+
+/* Card details styling */
+.card-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+.demo-category {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--accent);
+    letter-spacing: 1px;
+}
+
+.card-body h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.demo-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-dark);
+}
+
+.price {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-white);
+}
+
+/* --- EFFECT 2: Button Hover Interaction --- */
+.buy-now-btn {
+    background-color: var(--text-white);
+    color: var(--bg-dark);
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 10px 20px;
+    font-weight: 600;
+    cursor: pointer;
+    /* Smooth color and background transition */
+    transition: var(--transition-ease);
+}
+
+/* Hover: change bg/color + transform: scale(1.05) */
+.buy-now-btn:hover {
+    background-color: var(--primary-light);
+    color: var(--text-white);
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+}
+
+/* --- EFFECT 4: Loading Spinner --- */
+.spinner-showcase {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.spinner-card {
+    background-color: var(--bg-dark-accent);
+    border: 1px solid var(--border-dark);
+    border-radius: var(--radius-lg);
+    padding: 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.spinner-container {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Standard circular border spinner with infinite spin animation */
+.loading-spinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    border-top-color: var(--primary-light);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Glow Dual-Tone Spinner variation */
+.glow-spinner {
+    width: 48px;
+    height: 48px;
+    border: 4px solid transparent;
+    border-top-color: var(--accent);
+    border-bottom-color: var(--primary-light);
+    border-radius: 50%;
+    animation: spin 0.8s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    box-shadow: 0 0 15px rgba(6, 182, 212, 0.2);
+}
+
+/* Dash Pulsing Spinner variation */
+.dash-spinner {
+    width: 48px;
+    height: 48px;
+    border: 3px dashed var(--primary-light);
+    border-radius: 50%;
+    animation: spin 2s linear infinite;
+}
+
+/* Spin animation keyframes */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner-card h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.spinner-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* --- EFFECT 5: Fade-in on load (CSS Only) --- */
+.fade-demo-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.fade-demo-box {
+    background-color: var(--bg-dark-accent);
+    border: 1px solid var(--border-dark);
+    border-radius: var(--radius-lg);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.box-icon {
+    width: 48px;
+    height: 48px;
+    background-color: rgba(99, 102, 241, 0.1);
+    color: var(--primary-light);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.fade-demo-box h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.fade-demo-box p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* Keyframes for FadeIn */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Class to activate the keyframes fadeIn */
+.anim-fade-in {
+    opacity: 0; /* Starting state before animation triggers */
+    animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Footer styling */
+.footer {
+    background-color: #090d16;
+    border-top: 1px solid var(--border-dark);
+    padding: 30px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 60px;
+}

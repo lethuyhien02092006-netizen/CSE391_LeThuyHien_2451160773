@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechVibe - Transitions & Animations Showcase</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Showcase Stylesheet -->
+    <link rel="stylesheet" href="animations.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="header anim-fade-in" style="animation-delay: 0.1s;">
+        <div class="header-container">
+            <a href="responsive.html" class="logo">
+                <span class="logo-accent">Tech</span>Vibe
+            </a>
+            <nav class="nav-links">
+                <a href="responsive.html" class="nav-item">Go to B1 Product Page</a>
+                <a href="#" class="nav-item active">Animations Showcase</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Wrapper -->
+    <div class="showcase-container">
+        
+        <!-- Hero Section -->
+        <section class="hero-section anim-fade-in" style="animation-delay: 0.2s;">
+            <h1>CSS Transitions & Animations</h1>
+            <p>A showcase of clean, hardware-accelerated animations and micro-interactions for modern web UI elements.</p>
+        </section>
+
+        <!-- Cards Showcase Section -->
+        <section class="showcase-section anim-fade-in" style="animation-delay: 0.3s;">
+            <div class="section-title">
+                <h2>1. Card, Image & Button Interactions</h2>
+                <p>Hover over the cards below to see: <strong>Card translateY / Shadow Glow</strong>, <strong>Image zoom</strong>, and <strong>Button scale/color transitions</strong>.</p>
+            </div>
+            
+            <div class="cards-grid">
+                <!-- Card 1 -->
+                <div class="demo-card">
+                    <div class="img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&auto=format&fit=crop&q=80" alt="Nebula Watch">
+                    </div>
+                    <div class="card-body">
+                        <span class="demo-category">Effects 1, 2 & 3 Demo</span>
+                        <h3>Nebula Smart Watch</h3>
+                        <p class="demo-desc">Hover to translate card, zoom image, and check the button transition below.</p>
+                        <div class="card-footer">
+                            <span class="price">$199.00</span>
+                            <button class="buy-now-btn">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="demo-card" style="animation-delay: 0.4s;">
+                    <div class="img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=500&auto=format&fit=crop&q=80" alt="SonicEarbuds">
+                    </div>
+                    <div class="card-body">
+                        <span class="demo-category">Effects 1, 2 & 3 Demo</span>
+                        <h3>SonicBlast Earbuds</h3>
+                        <p class="demo-desc">Observe the smooth translateY and clean shadow spread on card hover.</p>
+                        <div class="card-footer">
+                            <span class="price">$89.00</span>
+                            <button class="buy-now-btn">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="demo-card" style="animation-delay: 0.5s;">
+                    <div class="img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop&q=80" alt="Polaris Headphone">
+                    </div>
+                    <div class="card-body">
+                        <span class="demo-category">Effects 1, 2 & 3 Demo</span>
+                        <h3>Polaris ANC Headphones</h3>
+                        <p class="demo-desc">Image scale (zoom) is clipped inside the container using overflow hidden.</p>
+                        <div class="card-footer">
+                            <span class="price">$249.00</span>
+                            <button class="buy-now-btn">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Loader Section -->
+        <section class="showcase-section anim-fade-in" style="animation-delay: 0.4s;">
+            <div class="section-title">
+                <h2>2. Loading Spinners</h2>
+                <p>Created using CSS <code>@keyframes</code> animations spinning infinitely.</p>
+            </div>
+            
+            <div class="spinner-showcase">
+                <div class="spinner-card">
+                    <div class="spinner-container">
+                        <!-- Standard Spinner -->
+                        <div class="loading-spinner"></div>
+                    </div>
+                    <h4>Standard Spinner</h4>
+                    <p>Border animation spinning infinitely.</p>
+                </div>
+                
+                <div class="spinner-card">
+                    <div class="spinner-container">
+                        <!-- Gradient Glow Spinner -->
+                        <div class="glow-spinner"></div>
+                    </div>
+                    <h4>Dual-Tone Glow</h4>
+                    <p>Modern gradient look with variable border-color.</p>
+                </div>
+
+                <div class="spinner-card">
+                    <div class="spinner-container">
+                        <!-- Dash Spinner -->
+                        <div class="dash-spinner"></div>
+                    </div>
+                    <h4>Pulsing Dash</h4>
+                    <p>Changing border stroke lengths.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scroll Fade Section -->
+        <section class="showcase-section anim-fade-in" style="animation-delay: 0.5s;">
+            <div class="section-title">
+                <h2>3. Page & Scroll Fade-in (CSS Only)</h2>
+                <p>These elements fade in with slide-up transitions as soon as the page is parsed and loaded.</p>
+            </div>
+            
+            <div class="fade-demo-row">
+                <div class="fade-demo-box anim-fade-in" style="animation-delay: 0.6s;">
+                    <div class="box-icon"><i class="fa-solid fa-bolt"></i></div>
+                    <h3>Performance</h3>
+                    <p>Uses CSS <code>transform</code> and <code>opacity</code> for GPU acceleration.</p>
+                </div>
+                <div class="fade-demo-box anim-fade-in" style="animation-delay: 0.7s;">
+                    <div class="box-icon"><i class="fa-solid fa-code"></i></div>
+                    <h3>CSS-Only</h3>
+                    <p>No Javascript libraries required, maintaining lightweight page execution.</p>
+                </div>
+                <div class="fade-demo-box anim-fade-in" style="animation-delay: 0.8s;">
+                    <div class="box-icon"><i class="fa-solid fa-bezier-curve"></i></div>
+                    <h3>Smooth Easing</h3>
+                    <p>Calculated cubic-bezier curves for an organic, premium response.</p>
+                </div>
+            </div>
+        </section>
+        
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer anim-fade-in" style="animation-delay: 0.9s;">
+        <p>&copy; 2026 TechVibe. Animations Showcase. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

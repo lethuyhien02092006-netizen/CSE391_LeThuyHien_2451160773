@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechVibe - Premium Product Showcase</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css" id="theme-style">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="header-container">
+            <a href="#" class="logo">
+                <span class="logo-accent">Tech</span>Vibe
+            </a>
+            
+            <button class="hamburger" aria-label="Toggle menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            
+            <nav class="nav-links">
+                <a href="#" class="nav-item active">Home</a>
+                <a href="#" class="nav-item">Shop</a>
+                <a href="#" class="nav-item">Collections</a>
+                <a href="#" class="nav-item">About</a>
+                <a href="#" class="nav-item">Contact</a>
+                <div class="nav-cart">
+                    <a href="#" class="cart-btn">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span class="cart-badge">3</span>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="main-wrapper">
+        <!-- Sidebar (Filters) -->
+        <aside class="sidebar" id="filter-sidebar">
+            <div class="sidebar-header">
+                <h3><i class="fa-solid fa-sliders"></i> Filters</h3>
+            </div>
+            <div class="filter-group">
+                <h4>Categories</h4>
+                <div class="filter-options">
+                    <label class="filter-label">
+                        <input type="checkbox" checked> All Products
+                    </label>
+                    <label class="filter-label">
+                        <input type="checkbox"> Audio Gear
+                    </label>
+                    <label class="filter-label">
+                        <input type="checkbox"> Accessories
+                    </label>
+                    <label class="filter-label">
+                        <input type="checkbox"> Wearables
+                    </label>
+                    <label class="filter-label">
+                        <input type="checkbox"> Smart Home
+                    </label>
+                </div>
+            </div>
+            <div class="filter-group">
+                <h4>Price Range</h4>
+                <div class="price-slider-container">
+                    <input type="range" min="10" max="500" value="300" class="price-slider">
+                    <div class="price-values">
+                        <span>$10</span>
+                        <span>$500</span>
+                    </div>
+                </div>
+            </div>
+            <div class="filter-group">
+                <h4>Customer Rating</h4>
+                <div class="rating-filter">
+                    <label class="filter-label">
+                        <input type="radio" name="rating-filter"> 4★ & above
+                    </label>
+                    <label class="filter-label">
+                        <input type="radio" name="rating-filter"> 3★ & above
+                    </label>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Product Grid Container -->
+        <main class="content-area">
+            <div class="section-header">
+                <h2>New Arrivals</h2>
+                <p>Explore our premium curated smart tech essentials.</p>
+            </div>
+            
+            <div class="product-grid">
+                <!-- Card 1 -->
+                <article class="product-card">
+                    <div class="card-img-container">
+                        <span class="card-badge hot">Hot</span>
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&auto=format&fit=crop&q=80" alt="Nebula Smart Watch" class="product-img">
+                        <div class="card-action-overlay">
+                            <button class="action-btn" aria-label="Add to wishlist"><i class="fa-regular fa-heart"></i></button>
+                            <button class="action-btn" aria-label="Quick view"><i class="fa-regular fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="card-details">
+                        <span class="product-category">Wearables</span>
+                        <h3 class="product-title">Nebula Smart Watch</h3>
+                        <div class="product-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                            <span class="rating-count">(128)</span>
+                        </div>
+                        <div class="card-footer">
+                            <span class="product-price">$199.00</span>
+                            <button class="buy-btn">Buy Now</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="product-card">
+                    <div class="card-img-container">
+                        <span class="card-badge promo">-15%</span>
+                        <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=500&auto=format&fit=crop&q=80" alt="SonicBlast Wireless Earbuds" class="product-img">
+                        <div class="card-action-overlay">
+                            <button class="action-btn" aria-label="Add to wishlist"><i class="fa-regular fa-heart"></i></button>
+                            <button class="action-btn" aria-label="Quick view"><i class="fa-regular fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="card-details">
+                        <span class="product-category">Audio Gear</span>
+                        <h3 class="product-title">SonicBlast Earbuds</h3>
+                        <div class="product-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <span class="rating-count">(96)</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price-container">
+                                <span class="product-price">$75.65</span>
+                                <span class="old-price">$89.00</span>
+                            </div>
+                            <button class="buy-btn">Buy Now</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="product-card">
+                    <div class="card-img-container">
+                        <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=500&auto=format&fit=crop&q=80" alt="CoreGlow Mechanical Keyboard" class="product-img">
+                        <div class="card-action-overlay">
+                            <button class="action-btn" aria-label="Add to wishlist"><i class="fa-regular fa-heart"></i></button>
+                            <button class="action-btn" aria-label="Quick view"><i class="fa-regular fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="card-details">
+                        <span class="product-category">Accessories</span>
+                        <h3 class="product-title">CoreGlow Keyboard</h3>
+                        <div class="product-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="rating-count">(215)</span>
+                        </div>
+                        <div class="card-footer">
+                            <span class="product-price">$129.00</span>
+                            <button class="buy-btn">Buy Now</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="product-card">
+                    <div class="card-img-container">
+                        <img src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=500&auto=format&fit=crop&q=80" alt="AeroLight Desk Lamp" class="product-img">
+                        <div class="card-action-overlay">
+                            <button class="action-btn" aria-label="Add to wishlist"><i class="fa-regular fa-heart"></i></button>
+                            <button class="action-btn" aria-label="Quick view"><i class="fa-regular fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="card-details">
+                        <span class="product-category">Smart Home</span>
+                        <h3 class="product-title">AeroLight Desk Lamp</h3>
+                        <div class="product-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <span class="rating-count">(43)</span>
+                        </div>
+                        <div class="card-footer">
+                            <span class="product-price">$49.00</span>
+                            <button class="buy-btn">Buy Now</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 5 -->
+                <article class="product-card">
+                    <div class="card-img-container">
+                        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&auto=format&fit=crop&q=80" alt="Titan Leather Backpack" class="product-img">
+                        <div class="card-action-overlay">
+                            <button class="action-btn" aria-label="Add to wishlist"><i class="fa-regular fa-heart"></i></button>
+                            <button class="action-btn" aria-label="Quick view"><i class="fa-regular fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="card-details">
+                        <span class="product-category">Accessories</span>
+                        <h3 class="product-title">Titan Leather Backpack</h3>
+                        <div class="product-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="rating-count">(82)</span>
+                        </div>
+                        <div class="card-footer">
+                            <span class="product-price">$149.00</span>
+                            <button class="buy-btn">Buy Now</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 6 -->
+                <article class="product-card">
+                    <div class="card-img-container">
+                        <span class="card-badge new">New</span>
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&auto=format&fit=crop&q=80" alt="Polaris ANC Headphones" class="product-img">
+                        <div class="card-action-overlay">
+                            <button class="action-btn" aria-label="Add to wishlist"><i class="fa-regular fa-heart"></i></button>
+                            <button class="action-btn" aria-label="Quick view"><i class="fa-regular fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="card-details">
+                        <span class="product-category">Audio Gear</span>
+                        <h3 class="product-title">Polaris Headphones</h3>
+                        <div class="product-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                            <span class="rating-count">(156)</span>
+                        </div>
+                        <div class="card-footer">
+                            <span class="product-price">$249.00</span>
+                            <button class="buy-btn">Buy Now</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 7 -->
+                <article class="product-card">
+                    <div class="card-img-container">
+                        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=500&auto=format&fit=crop&q=80" alt="Smart Warm Mug" class="product-img">
+                        <div class="card-action-overlay">
+                            <button class="action-btn" aria-label="Add to wishlist"><i class="fa-regular fa-heart"></i></button>
+                            <button class="action-btn" aria-label="Quick view"><i class="fa-regular fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="card-details">
+                        <span class="product-category">Smart Home</span>
+                        <h3 class="product-title">Ember Smart Mug</h3>
+                        <div class="product-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <span class="rating-count">(64)</span>
+                        </div>
+                        <div class="card-footer">
+                            <span class="product-price">$99.00</span>
+                            <button class="buy-btn">Buy Now</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 8 -->
+                <article class="product-card">
+                    <div class="card-img-container">
+                        <img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&auto=format&fit=crop&q=80" alt="Wave Bluetooth Speaker" class="product-img">
+                        <div class="card-action-overlay">
+                            <button class="action-btn" aria-label="Add to wishlist"><i class="fa-regular fa-heart"></i></button>
+                            <button class="action-btn" aria-label="Quick view"><i class="fa-regular fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div class="card-details">
+                        <span class="product-category">Audio Gear</span>
+                        <h3 class="product-title">Wave Bluetooth Speaker</h3>
+                        <div class="product-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <span class="rating-count">(37)</span>
+                        </div>
+                        <div class="card-footer">
+                            <span class="product-price">$59.00</span>
+                            <button class="buy-btn">Buy Now</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </main>
+
+        <!-- Ads Bar -->
+        <aside class="ads-bar">
+            <div class="ads-box newsletter">
+                <h3>Join Our Club</h3>
+                <p>Subscribe to get 10% off your first order!</p>
+                <form class="ads-form" onsubmit="event.preventDefault();">
+                    <input type="email" placeholder="Your Email" aria-label="Email Address">
+                    <button class="ads-btn">Subscribe</button>
+                </form>
+            </div>
+            <div class="ads-box promo-ad">
+                <div class="promo-bg"></div>
+                <div class="promo-content">
+                    <span class="promo-tag">LIMITED TIME</span>
+                    <h4>Summer Sale</h4>
+                    <p>Up to 50% off select products</p>
+                    <a href="#" class="promo-link">Shop Deals <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col brand-col">
+                <a href="#" class="logo footer-logo"><span class="logo-accent">Tech</span>Vibe</a>
+                <p>Providing the modern user with sleek, smart tech accessories for a streamlined daily lifestyle.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Shop All</a></li>
+                    <li><a href="#">New Arrivals</a></li>
+                    <li><a href="#">Support Hub</a></li>
+                    <li><a href="#">Warranty Details</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Policies</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">Accessibility Statement</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 TechVibe. Crafted with passion for modern living.</p>
+        </div>
+    </footer>
+
+    <!-- Interactive script for mobile nav toggle -->
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

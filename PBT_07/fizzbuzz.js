@@ -1,4 +1,3 @@
-// Version 1: Classic FizzBuzz 1-100
 console.log("=== Classic FizzBuzz (1-100) ===");
 for (let i = 1; i <= 100; i++) {
     let out = "";
@@ -6,7 +5,6 @@ for (let i = 1; i <= 100; i++) {
     if (i % 5 === 0) out += "Buzz";
     console.log(i + ": " + (out || i));
 }
-
 function customFizzBuzz(n, rules) {
     for (let i = 1; i <= n; i++) {
         let out = "";
@@ -18,7 +16,6 @@ function customFizzBuzz(n, rules) {
         console.log(i + ": " + (out || i));
     }
 }
-
 console.log("\n=== Custom FizzBuzz (1-35) ===");
 customFizzBuzz(35, [
     { divisor: 3, word: "Fizz" },

@@ -1,7 +1,6 @@
 function formatMoney(amount) {
     return amount.toLocaleString("vi-VN");
 }
-
 function createCart() {
     let items = [];
     let discountPercent = 0;
@@ -106,7 +105,6 @@ function createCart() {
         },
     };
 }
-
 const cart = createCart();
 
 cart.addItem({ id: 1, name: "iPhone 16", price: 25990000 }, 1);
@@ -121,5 +119,4 @@ cart.printCart();
 console.log("Số SP:", cart.getItemCount());
 cart.removeItem(3);
 console.log("Sau xóa:", cart.getItemCount());
-
 module.exports = { createCart };

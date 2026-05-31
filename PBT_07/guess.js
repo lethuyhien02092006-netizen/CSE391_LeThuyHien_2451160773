@@ -3,7 +3,6 @@
     const maxAttempts = 7;
     const guessed = [];
     let attempts = 0;
-
     alert("Đoán số từ 1 đến 100! Bạn có tối đa " + maxAttempts + " lượt.");
 
     while (attempts < maxAttempts) {
@@ -39,6 +38,5 @@
             alert("Thấp hơn!");
         }
     }
-
     alert("Hết lượt! Bạn thua. Đáp án là: " + secret);
 })();

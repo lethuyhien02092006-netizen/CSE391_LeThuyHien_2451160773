@@ -10,15 +10,12 @@ const products = [
     { id: 9, name: "Pixel 9", price: 19990000, category: "phone", stock: 12, rating: 4.6 },
     { id: 10, name: "ThinkPad X1", price: 32990000, category: "laptop", stock: 3, rating: 4.5 }
 ];
-
 function formatPrice(price) {
     return price.toLocaleString("vi-VN") + "đ";
 }
-
 function getInStock(products) {
     return products.filter((p) => p.stock > 0);
 }
-
 function filterProducts(products, category, minPrice, maxPrice) {
     return products.filter(
         (p) =>
@@ -27,13 +24,11 @@ function filterProducts(products, category, minPrice, maxPrice) {
             p.price <= maxPrice
     );
 }
-
 function sortByPrice(products, order = "asc") {
     return [...products].sort((a, b) =>
         order === "asc" ? a.price - b.price : b.price - a.price
     );
 }
-
 function cheapestByCategory(products) {
     return products.reduce((acc, product) => {
         const current = acc[product.category];
@@ -47,7 +42,6 @@ function cheapestByCategory(products) {
 function totalInventoryValue(products) {
     return products.reduce((sum, p) => sum + p.price * p.stock, 0);
 }
-
 function formatProductList(products) {
     return products.map((p) => ({
         name: p.name,

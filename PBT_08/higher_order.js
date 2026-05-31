@@ -1,7 +1,6 @@
 function pipe(...fns) {
     return (value) => fns.reduce((acc, fn) => fn(acc), value);
 }
-
 function memoize(fn) {
     const cache = new Map();
     return function (...args) {
@@ -12,7 +11,6 @@ function memoize(fn) {
         return result;
     };
 }
-
 function debounce(fn, delay) {
     let timerId;
     return function (...args) {
@@ -20,7 +18,6 @@ function debounce(fn, delay) {
         timerId = setTimeout(() => fn.apply(this, args), delay);
     };
 }
-
 async function retry(fn, maxAttempts = 3) {
     let lastError;
     for (let attempt = 1; attempt <= maxAttempts; attempt++) {

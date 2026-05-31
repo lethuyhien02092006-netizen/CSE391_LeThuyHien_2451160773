@@ -2,7 +2,6 @@
 console.log("=== Đoạn 1 ===");
 console.log(x);
 var x = 5;
-
 // Đoạn 2 - bỏ comment để chạy (sẽ lỗi ReferenceError)
 // console.log("=== Đoạn 2 ===");
 // console.log(y);

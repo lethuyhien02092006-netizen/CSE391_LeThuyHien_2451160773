@@ -8,18 +8,15 @@ const students = [
     { name: "Giang", math: 7, physics: 7, cs: 7, gender: "F" },
     { name: "Huy", math: 4, physics: 6, cs: 3, gender: "M" },
 ];
-
 function avgScore(s) {
     return s.math * 0.4 + s.physics * 0.3 + s.cs * 0.3;
 }
-
 function classify(avg) {
     if (avg >= 8.0) return "Giỏi";
     if (avg >= 6.5) return "Khá";
     if (avg >= 5.0) return "Trung bình";
     return "Yếu";
 }
-
 const results = [];
 for (let i = 0; i < students.length; i++) {
     const avg = avgScore(students[i]);

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-time Form Validator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="form-wrapper">
+            <h2>Create an Account</h2>
+            <p class="subtitle">Join us to explore amazing features.</p>
+            
+            <form id="registerForm" novalidate>
+                <div class="input-group">
+                    <label for="name">Full Name</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="name" placeholder="John Doe">
+                        <span class="status-icon" id="nameIcon"></span>
+                    </div>
+                    <span class="error-msg" id="nameError">Name must be between 2 and 50 characters.</span>
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Email Address</label>
+                    <div class="input-wrapper">
+                        <input type="email" id="email" placeholder="john@example.com">
+                        <span class="status-icon" id="emailIcon"></span>
+                    </div>
+                    <span class="error-msg" id="emailError">Please enter a valid email address.</span>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <div class="input-wrapper">
+                        <input type="password" id="password" placeholder="••••••••">
+                    </div>
+                    <div class="strength-meter">
+                        <div class="strength-bar" id="strengthBar"></div>
+                    </div>
+                    <span class="strength-text" id="strengthText"></span>
+                </div>
+
+                <div class="input-group">
+                    <label for="confirmPwd">Confirm Password</label>
+                    <div class="input-wrapper">
+                        <input type="password" id="confirmPwd" placeholder="••••••••">
+                        <span class="status-icon" id="confirmPwdIcon"></span>
+                    </div>
+                    <span class="error-msg" id="confirmPwdError">Passwords do not match.</span>
+                </div>
+
+                <div class="input-group">
+                    <label for="phone">Phone Number</label>
+                    <div class="input-wrapper">
+                        <input type="tel" id="phone" placeholder="0901-234-567" maxlength="12">
+                        <span class="status-icon" id="phoneIcon"></span>
+                    </div>
+                    <span class="error-msg" id="phoneError">Please enter a valid 10-digit phone number.</span>
+                </div>
+
+                <button type="submit" id="submitBtn" disabled>Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div class="success-icon">✓</div>
+            <h3>Đăng ký thành công!</h3>
+            <div class="user-details" id="userDetails"></div>
+            <button id="closeModal">Continue</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

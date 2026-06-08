@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Todo App</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Tasks</h1>
+        </header>
+
+        <form id="todoForm" class="todo-form">
+            <input type="text" id="todoInput" placeholder="What needs to be done?" autocomplete="off">
+            <button type="submit" class="add-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14m-7-7h14"/></svg>
+            </button>
+        </form>
+
+        <ul id="todoList" class="todo-list">
+            <!-- Todos will be injected here by JS -->
+        </ul>
+
+        <div class="todo-footer">
+            <span id="todoCount" class="todo-count">0 items left</span>
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="active">Active</button>
+                <button class="filter-btn" data-filter="completed">Completed</button>
+            </div>
+            <button id="clearCompleted" class="clear-btn">Clear completed</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
